@@ -16,7 +16,7 @@ export type ValidatorConfigType = {
   };
 };
 
-export function validator(data: { [key: string]: any }, validatorConfig: ValidatorConfigType) {
+export function validatorForUseForm(data: { [key: string]: any }, validatorConfig: ValidatorConfigType) {
   const errors: { [key: string]: string } = {};
 
   function validate(validateMethod: string, fieldData: string, config: ConfigFieldNameType) {

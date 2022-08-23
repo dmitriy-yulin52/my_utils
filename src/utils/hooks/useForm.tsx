@@ -1,5 +1,5 @@
 import React, {ChangeEvent, PropsWithChildren, ReactElement, useCallback, useState} from 'react';
-import {validator, ValidatorConfigType} from "../validator";
+import {validatorForUseForm, ValidatorConfigType} from "../validatorForUseForm";
 
 function useForm<T>(initialData: T, validateOnChange: boolean, validatorConfig: ValidatorConfigType) {
   const [data, setData] = useState<T>(initialData);
@@ -8,7 +8,7 @@ function useForm<T>(initialData: T, validateOnChange: boolean, validatorConfig: 
 
   const validate = useCallback(
       (data:any) => {
-      const errors = validator(data, validatorConfig);
+      const errors = validatorForUseForm(data, validatorConfig);
       setErrors(errors);
       return Object.keys(errors).length === 0;
     },
